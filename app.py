@@ -64,6 +64,7 @@ def editFruit(_id):
             nama_file_gambar = nama_file_asli.split('/')[-1]
             file_path = f'static/assets/imgFruit/{nama_file_gambar}'
             nama_gambar.save(file_path)
+            doc['gambar'] = nama_file_gambar
 
         db.fruit.update_one({"_id" :ObjectId(_id)}, {"$set":doc})
         return redirect(url_for("fruit"))  
