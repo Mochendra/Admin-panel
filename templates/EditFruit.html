@@ -27,7 +27,7 @@
                                 placeholder="Enter the Price" required value="{{data[0].harga}}"/>
                         </div>
 
-                        <div class="mb-3">
+                        <div class="mb-3 d-flex flex-column gap-2">
                             <label for="exampleInputPassword1" class="form-label">Image</label>
                             <img id="gambar-preview" src="../static/assets/img/{{data[0].gambar}}" alt="" width="200">
                             <input type="file" class="form-control" accept=".png,.jpg,.jpeg" name="gambar"
@@ -43,5 +43,7 @@
                         </div>
                     </form>
     </main><!-- End #main -->
+
+{% include 'footer.html' %}
 
     
