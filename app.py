@@ -1,11 +1,19 @@
 from flask import Flask, redirect, url_for, render_template, request
 from pymongo import MongoClient
 from bson import ObjectId
+from dotenv import load_dotenv
+import os
+from os.path import join, dirname
 from werkzeug.utils import secure_filename
-client = MongoClient("mongodb+srv://Mochendra-1:Surabaya1234@cluster0.bcfldsy.mongodb.net/")
-db = client.dbfruit
 
-import os 
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
+
+MONGODB_URI = os.environ.get("MONGODB_URI")
+DB_NAME =  os.environ.get("DB_NAME")
+
+client = MongoClient(MONGODB_URI)
+db = client[DB_NAME]
 
 app = Flask(__name__)
 
